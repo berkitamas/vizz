@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<title>Vizz</title>
+	<link rel="icon" type="image/png" th:href="@{/images/icons/polo.png}"/>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+		<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}" rel="stylesheet" type="text/css">
+		<link th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}" rel="stylesheet" type="text/css">
+		<link th:href="@{https://use.fontawesome.com/releases/v5.5.0/css/all.css}" rel="stylesheet" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}" rel="stylesheet" type="text/css">
+		<link th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}" rel="stylesheet" type="text/css">
+
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<!-- Animate.css -->
+		<link rel="stylesheet" th:href="@{/css/animate.css}">
+
+		<!-- Magnific Popup -->
+		<link rel="stylesheet" th:href="@{kosárdolgai/css/magnific-popup.css}">
+
+		<!-- Flexslider  -->
+		<link rel="stylesheet" th:href="@{/css/flexslider.css}">
+
+		<!-- Owl Carousel -->
+		<link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+		<link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+
+		<!-- Theme style  -->
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<link th:href="@{/css/freelancer.min.css}" rel="stylesheet">
+
+		<!-- Plugin CSS -->
+		<link th:href="@{/vendor/magnific-popup/magnific-popup.css}" rel="stylesheet" type="text/css">
+
+
+	</head>
+	<body>
+		
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+			<div class="container">
+				<a class="navbar-brand js-scroll-trigger" href="indexbe.html">Vizz</a>
+				<button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					Menu
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item mx-0 mx-lg-1">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="cart">Kosár</a>
+						</li>
+						<li class="nav-item mx-0 mx-lg-1">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="products">Termékeink</a>
+						</li>
+						<li class="nav-item mx-0 mx-lg-1">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/">Rólunk</a>
+						</li>
+						<li class="nav-item mx-0 mx-lg-1">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout">Kijelentkezés</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<p class="bread"><span><a href="index.html">Home</a></span> / <span>Checkout</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="colorlib-product">
+			<div class="container">
+				<div class="row row-pb-lg">
+					<div class="col-sm-10 offset-md-1">
+						<div class="process-wrap">
+							<div class="process text-center">
+								<p><span>01</span></p>
+								<h3>Kosár</h3>
+							</div>
+							<div class="process text-center active">
+								<p><span>02</span></p>
+								<h3>Fizetés</h3>
+							</div>
+							<div class="process text-center">
+								<p><span>03</span></p>
+								<h3>Rendelés befejezése</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-8">
+						<form method="post" class="colorlib-form">
+							<h2>Rendelés részletei</h2>
+		              	<div class="row">
+			               <div class="col-md-12">
+			                  <div class="form-group">
+			                  	<label for="country">Ország</label>
+								  <input type="text" id="fname" class="form-control" placeholder="Ország">
+			                     <div class="form-field">
+			                     	<i class="icon icon-arrow-down3"></i>
+			                     </div>
+			                  </div>
+			               </div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="fname">Vezetéknév</label>
+										<input type="text" id="fname" class="form-control" placeholder="Vezetéknév">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="lname">Keresztnév</label>
+										<input type="text" id="lname" class="form-control" placeholder="Keresztnév">
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="companyname">Cégnév</label>
+			                    	<input type="text" id="companyname" class="form-control" placeholder="Cégnév">
+			                  </div>
+			               </div>
+
+			               <div class="col-md-12">
+									<div class="form-group">
+										<label for="fname">Cím</label>
+			                    	<input type="text" id="address" class="form-control" placeholder="Cím">
+			                  </div>
+
+			               </div>
+			            
+			               <div class="col-md-12">
+									<div class="form-group">
+										<label for="companyname">Város</label>
+			                    	<input type="text" id="towncity" class="form-control" placeholder="Város">
+			                  </div>
+			               </div>
+			            
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="stateprovince">Megye</label>
+										<input type="text" id="fname" class="form-control" placeholder="Megye">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="lname">Irányítószám</label>
+										<input type="text" id="zippostalcode" class="form-control" placeholder="Irányítószám">
+									</div>
+								</div>
+							
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="email">E-mail cím</label>
+										<input type="text" id="email" class="form-control" placeholder="E-mail cím">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="Phone">Telefonszám</label>
+										<input type="text" id="zippostalcode" class="form-control" placeholder="">
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="form-group">
+										<div class="radio">
+										  <label><input type="radio" name="optradio"> Rendelés a meglévő adatokkal</label>
+										  <label><input type="radio" name="optradio"> Vásárlás más címen</label>
+										</div>
+									</div>
+								</div>
+		               </div>
+		            </form>
+					</div>
+
+					<div class="col-lg-4">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="cart-detail">
+									<h2>Kosár összesen</h2>
+									<ul>
+										<li>
+											<span>Részösszeg</span> <span>$100.00</span>
+											<ul>
+												<li><span>1 x Product Name</span> <span>$99.00</span></li>
+												<li><span>1 x Product Name</span> <span>$78.00</span></li>
+											</ul>
+										</li>
+										<li><span>Szállítás</span> <span>$0.00</span></li>
+										<li><span>Végösszeg</span> <span>$180.00</span></li>
+									</ul>
+								</div>
+						   </div>
+
+						   <div class="w-100"></div>
+
+						   <div class="col-md-12">
+								<div class="cart-detail">
+									<h2>Fizetés típusa</h2>
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="radio">
+											   <label><input type="radio" name="optradio"> Banki utalás</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="radio">
+											   <label><input type="radio" name="optradio"> Utánvét</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="radio">
+											   <label><input type="radio" name="optradio"> Paypal</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="checkbox">
+											   <label><input type="checkbox" value=""> Elolvastam és elfogadom a feltételeket.</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<p><a href="order-complete.html" class="btn btn-primary">Megrendelem</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer text-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 mb-5 mb-lg-0">
+						<h4 class="text-uppercase mb-4">Posta címünk</h4>
+						<p class="lead mb-0">6722 Szeged
+							<br>Londoni Körút 49</p>
+					</div>
+					<div class="col-md-4 mb-5 mb-lg-0">
+						<h4 class="text-uppercase mb-4">Közösségi portálaink</h4>
+						<ul class="list-inline mb-0">
+							<li class="list-inline-item">
+								<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+									<i class="fab fa-fw fa-facebook-f"></i>
+								</a>
+							</li>
+							<li class="list-inline-item">
+								<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+									<i class="fab fa-fw fa-google-plus-g"></i>
+								</a>
+							</li>
+							<li class="list-inline-item">
+								<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+									<i class="fab fa-fw fa-twitter"></i>
+								</a>
+							</li>
+							<li class="list-inline-item">
+								<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+									<i class="fab fa-fw fa-linkedin-in"></i>
+								</a>
+							</li>
+							<li class="list-inline-item">
+								<a class="btn btn-outline-light btn-social text-center rounded-circle icon" href="#">
+									<i class="fab fa-fw fa-dribbble"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<h4 class="text-uppercase mb-4">Webshop ügyfélszolgálat</h4>
+						<p class="lead mb-0">
+							Tel: +36 (90) 684-1243
+							E-mail: ugyfelszolgalat@vizz.hu
+						</p>
+					</div>
+				</div>
+				<div class="t-center p-l-15 p-r-15">
+					<a href="#">
+						<img class="h-size2" th:src="@{images/icons/paypal.png}" alt="IMG-PAYPAL">
+					</a>
+
+					<a href="#">
+						<img class="h-size2" th:src="@{images/icons/visa.png}" alt="IMG-VISA">
+					</a>
+
+					<a href="#">
+						<img class="h-size2" th:src="@{images/icons/mastercard.png}" alt="IMG-MASTERCARD">
+					</a>
+
+					<a href="#">
+						<img class="h-size2" th:src="@{images/icons/express.png}" alt="IMG-EXPRESS">
+					</a>
+
+					<a href="#">
+						<img class="h-size2" th:src="@{images/icons/discover.png}" alt="IMG-DISCOVER">
+					</a>
+				</div>
+			</div>
+
+			<div class="t-center s-text8 p-t-20">
+			</div>
+		</footer>
+
+		<div class="copyright py-4 text-center text-white">
+			<div class="container">
+				<medium>Copyright &copy; Vizz 2018</medium>
+			</div>
+		</div>
+	</div>
+	<!-- jQuery -->
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<!-- popper -->
+	<script th:src="@{/js/popper.min.js}"></script>
+	<!-- jQuery easing -->
+	<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+	<!-- Waypoints -->
+	<script th:src="@{/js/jquery.waypoints.min.js}"></script>
+	<!-- Flexslider -->
+	<script th:src="@{/js/jquery.flexslider-min.js}"></script>
+	<!-- Owl carousel -->
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<!-- Magnific Popup -->
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/magnific-popup-options.js}"></script>
+	<!-- Date Picker -->
+	<script th:src="@{/js/bootstrap-datepicker.js}"></script>
+	<!-- Stellar Parallax -->
+	<script th:src="@{/js/jquery.stellar.min.js}"></script>
+	<!-- Main -->
+	<script th:src="@{/js/main.js}"></script>
+
+	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+	<!-- Plugin JavaScript -->
+	<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+	<script th:src="@{/vendor/magnific-popup/jquery.magnific-popup.min.js}"></script>
+
+
+	<!-- Custom scripts for this template -->
+	<script th:src="@{/js/freelancer.min.js}"></script>
+
+	</body>
+</html>
+

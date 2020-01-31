@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Vizz</title>
+<link th:href="@{/images/icons/polo.png}" rel="icon" type="image/png"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link th:href="@{/css/style_reg.css}" rel="stylesheet" type="text/css" media="all"/>
+<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}" rel="stylesheet" type="text/css">
+<link th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}" rel="stylesheet" type="text/css">
+<link th:href="@{https://use.fontawesome.com/releases/v5.5.0/css/all.css}" rel="stylesheet" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}" rel="stylesheet" type="text/css">
+<link th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div class="signupform">
+<h1>Felhasználói fiók létrehozása</h1>
+	<div class="container">
+		<div class="row">
+		
+		<div class="agile_info">
+			<div class="w3l_form">
+				<div class="col-xs-6 left_grid_info">
+					<h3>Üdvözlünk!</h3>
+					<h4>Már csak pár lépés választ el attól, hogy te is lecsaphass a legjobb termékeinkre!</h4>
+					<h4> Figyelmesen töltsd ki az adatokat a valóságnak megfelelően, és kezdődhet is az utazás! Kellemes időtöltést kívánunk.</h4>
+					<ul class="social_section_1info">
+						<li><a href="#" class="w3_facebook"><i class="fab fa-facebook"></i></a></li>
+						<li><a href="#" class="w3_twitter"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="#" class="w3_instagram"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="#" class="w3_google"><i class="fab fa-google-plus"></i></a></li>
+						<li><a href="#" class="w3_pinterest"><i class="fab fa-pinterest"></i></a></li>
+						<li><a href="#" class="w3_vimeo"><i class="fab fa-vimeo"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-6 w3_info">
+				<form autocomplete="off" th:action="@{/register}"
+					  th:object="${user}" method="post" role="form">
+						<div class="input-group">
+							<span><i class="fa fa-user" aria-hidden="true"></i></span>
+							<input type="text" th:field="*{username}" placeholder="Felhasználónév" required>
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
+							<input type="password"th:field="*{password}" placeholder="Jelszó" required>
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
+							<input type="password" th:field="*{passwordAgain}" placeholder="Jelszó újra" required>
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+							<input type="email" th:field="*{email}" placeholder="E-mail cím" required>
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-user" aria-hidden="true"></i></span>
+							<input type="text" th:field="*{lastName}" placeholder="Vezetéknév" required>
+						</div>
+							<div class="input-group">
+								<span><i class="fa fa-user" aria-hidden="true"></i></span>
+								<input type="text" th:field="*{firstName}" placeholder="Keresztnév" required>
+							</div>
+							<div class="input-group">
+								<span><i class="fa fa-phone" aria-hidden="true"></i></span>
+								<input type="text" th:field="*{phone}" placeholder="Telefonszám" required>
+							</div>
+							<div class="input-group">
+								<span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+								<input type="text" th:field="*{zip}" placeholder="Irányítószám" required>
+							</div>
+							<div class="input-group">
+								<span><i class="fa fa-home" aria-hidden="true"></i></span>
+								<input type="text" th:field="*{city}" placeholder="Város" required>
+							</div>
+							<div class="input-group">
+								<span><i class="fa fa-home" aria-hidden="true"></i></span>
+								<input type="text" th:field="*{street}" placeholder="Utca" required>
+							</div>
+							<div class="input-group">
+								<span><i class="fa fa-home" aria-hidden="true"></i></span>
+								<input type="text" th:field="*{address}" placeholder="Házszám" required>
+							</div>
+							<input type="checkbox" value="remember-me" /> <h4>Elfogadom a felhasználói feltételeket. </h4>
+							<button class="btn btn-danger btn-block" type="submit">Regisztráció</button >
+
+							<div class="col-xs-12 kecske">
+								<a href="login">Belépés</a>
+							</div>
+					</form>
+			</div>
+			<div class="clear"></div>
+			</div>
+		</div>
+			
+		</div>
+	</div>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

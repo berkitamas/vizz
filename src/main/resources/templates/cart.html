@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<title>Vizz</title>
+	<link rel="icon" type="image/png" th:href="@{images/icons/polo.png}"/>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}" rel="stylesheet" type="text/css">
+	<link th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}" rel="stylesheet" type="text/css">
+	<link th:href="@{https://use.fontawesome.com/releases/v5.5.0/css/all.css}" rel="stylesheet" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}" rel="stylesheet" type="text/css">
+	<link th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}" rel="stylesheet" type="text/css">
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" th:href="@{/css/animate.css}">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" th:href="@{/css/flexslider.css}">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+	<link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link th:href="@{/css/freelancer.min.css}" rel="stylesheet">
+
+	<!-- Plugin CSS -->
+	<link th:href="@{/vendor/magnific-popup/magnific-popup.css}" rel="stylesheet" type="text/css">
+
+	</head>
+<body class="animsition">
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+			<div class="container">
+				<a class="navbar-brand js-scroll-trigger" href="/">Vizz</a>
+				<button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					Menu
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item mx-0 mx-lg-1">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/">Rólunk</a>
+						</li>
+						<li class="nav-item mx-0 mx-lg-1">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="cart">Kosár</a>
+						</li>
+						<li class="nav-item mx-0 mx-lg-1">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="orders">Rendeléseim</a>
+						</li>
+						<li class="nav-item mx-0 mx-lg-1">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="products">Termékeink</a>
+						</li>
+						<li class="nav-item mx-0 mx-lg-1">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="login">Bejelentkezés</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<p class="bread"><span><a href="/">Home</a></span> / <span>Shopping Cart</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="colorlib-product">
+			<div class="container">
+				<div class="row row-pb-lg">
+					<div class="col-md-10 offset-md-1">
+						<div class="process-wrap">
+							<div class="process text-center active">
+								<p><span>01</span></p>
+								<h3>Kosár</h3>
+							</div>
+							<div class="process text-center">
+								<p><span>02</span></p>
+								<h3>Fizetés</h3>
+							</div>
+							<div class="process text-center">
+								<p><span>03</span></p>
+								<h3>Rendelés befejezése</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row row-pb-lg">
+					<div class="col-md-12">
+						<div class="product-name d-flex">
+							<div class="one-forth text-left px-4">
+								<span>Termékek</span>
+							</div>
+							<div class="one-eight text-center">
+								<span>Ár</span>
+							</div>
+							<div class="one-eight text-center">
+								<span>Darabszám</span>
+							</div>
+							<div class="one-eight text-center px-4">
+								<span>Törlés</span>
+							</div>
+						</div>
+
+							<div class="product-cart d-flex">
+								<div class="one-forth">
+									<div class="product-img">
+										<img th:src="*{session.newCartProduct.pictureUrl}">
+									</div>
+									<div class="display-tc">
+										<h3 th:text="*{session.newCartProduct.name}"></h3>
+									</div>
+								</div>
+								<div class="one-eight text-center">
+									<div class="display-tc">
+										<span class="price" th:text="*{session.newCartProduct.priceNet}"></span>
+									</div>
+								</div>
+								<div class="one-eight text-center">
+									<div class="display-tc" th:text="${1}">
+									</div>
+								</div>
+
+							<div class="one-eight text-center">
+
+										<div class="display-tc">
+									<form method="post" th:action="@{/removeItemFromCart}">
+										<input type="hidden" name="id" th:value="*{session.newCartProduct.id}"/>
+										<button class="alert-danger">
+											X
+										</button>
+									</form>
+										</div>
+							</div>
+							</div>
+						
+						<!--
+						<div th:each="cartItem : ${cartItems}">
+								<div class="product-cart d-flex">
+										<div class="one-forth">
+											<div class="product-img">
+												<img th:src="${cartItem.pictureUrl}">
+											</div>
+											<div class="display-tc">
+												<h3 th:text="${cartItem.name}"></h3>
+											</div>
+										</div>
+										<div class="one-eight text-center">
+											<div class="display-tc">
+												<span class="price" th:text="${cartItem.vat}"></span>
+											</div>
+										</div>
+								</div>
+								<div class="one-eight text-center">
+									<div class="display-tc">
+										<form method="post" th:action="@{/removeItemFromCart}">
+											<input type="hidden" name="id" th:value="${cartItem.id}"/>
+											<a class="closed">
+											</a>
+										</form>
+									</div>
+								</div>
+						</div>	-->
+					</div>
+				</div>
+
+				<div class="row row-pb-lg">
+					<div class="col-md-12">
+						<div class="total-wrap">
+							<div class="row">
+								<div class="col-sm-8">
+									<form action="#">
+										<div class="row form-group">
+
+											<div class="col-sm-3">
+												<a href="orders" class="btn btn-primary">Rendelés véglegesítése</a>
+											</div>
+										</div>
+									</form>
+								</div>
+								<div class="col-sm-4 text-center">
+									<div class="total">
+										<div class="sub">
+											<p><span>Összeg:</span> <span th:text="${session.newCartProduct.priceNet}"></span></p>
+											<p><span>Szállítás:</span> <span>$0.00</span></p>
+										</div>
+										<div class="grand-total">
+											<p><span><strong>Végösszeg:</strong></span> <span th:text="${session.newCartProduct.priceNet}"></span></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+
+<!-- Footer -->
+<footer class="footer text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 mb-5 mb-lg-0">
+				<h4 class="text-uppercase mb-4">Posta címünk</h4>
+				<p class="lead mb-0">6722 Szeged
+					<br>Londoni Körút 49</p>
+			</div>
+			<div class="col-md-4 mb-5 mb-lg-0">
+				<h4 class="text-uppercase mb-4">Közösségi portálaink</h4>
+				<ul class="list-inline mb-0">
+					<li class="list-inline-item">
+						<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+							<i class="fab fa-fw fa-facebook-f"></i>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+							<i class="fab fa-fw fa-google-plus-g"></i>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+							<i class="fab fa-fw fa-twitter"></i>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+							<i class="fab fa-fw fa-linkedin-in"></i>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+							<i class="fab fa-fw fa-dribbble"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<h4 class="text-uppercase mb-4">Webshop ügyfélszolgálat</h4>
+				<p class="lead mb-0">
+					Tel: +36 (90) 684-1243
+					E-mail: ugyfelszolgalat@vizz.hu
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+</body>
+
+	<div class="copyright py-4 text-center text-white">
+		<div class="container">
+			<medium>Copyright &copy; Vizz 2018</medium>
+		</div>
+	</div>
+
+	<!-- jQuery -->
+	<script th:src="@{/js/jquery.min.js}"></script>
+   <!-- popper -->
+   <script th:src="@{/js/popper.min.js}"></script>
+   <!-- jQuery easing -->
+   <script th:src="@{/js/jquery.easing.1.3.js}"></script>
+	<!-- Waypoints -->
+	<script th:src="@{/js/jquery.waypoints.min.js}"></script>
+	<!-- Flexslider -->
+	<script th:src="@{/js/jquery.flexslider-min.js}"></script>
+	<!-- Owl carousel -->
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<!-- Magnific Popup -->
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/magnific-popup-options.js}"></script>
+	<!-- Date Picker -->
+	<script th:src="@{/js/bootstrap-datepicker.js}"></script>
+	<!-- Stellar Parallax -->
+	<script th:src="@{/js/jquery.stellar.min.js}"></script>
+	<!-- Main -->
+	<script th:src="@{/js/main.js}"></script>
+
+
+	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+	<!-- Plugin JavaScript -->
+	<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+	<script th:src="@{/vendor/magnific-popup/jquery.magnific-popup.min.js}"></script>
+
+
+	<!-- Custom scripts for this template -->
+	<script th:src="@{/js/freelancer.min.js}"></script>
+</html>

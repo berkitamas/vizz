@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Vizz</title>
+	<link rel="icon" type="image/png" th:href="@{/images/icons/polo.png}"/>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Custom fonts for this template -->
+	<link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.5.0/css/all.css}" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}" rel="stylesheet" type="text/css">
+	<link th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}" rel="stylesheet" type="text/css">
+	<!-- Plugin CSS -->
+	<link th:href="@{/vendor/magnific-popup/magnific-popup.css}" rel="stylesheet" type="text/css">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animsition/css/animsition.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+	<link th:href="@{/css/freelancer.min.css}" rel="stylesheet">
+</head>
+<body class="animsition">
+
+	<!-- Header -->
+	<header class="header1">
+		<!-- Header desktop -->
+		<div class="container-menu-header">
+			<div class="topbar">
+				<div class="topbar-social">
+					<a href="#" class="topbar-social-item fa fa-facebook"></a>
+					<a href="#" class="topbar-social-item fa fa-instagram"></a>
+					<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+					<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+				</div>
+			</div>
+
+			<div class="wrap_header">
+				<!-- Menu -->
+				<div class="wrap_menu">
+					<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+						<div class="container">
+							<a class="navbar-brand js-scroll-trigger" href="/">Vizz</a>
+							<button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+								Menu
+								<i class="fas fa-bars"></i>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarResponsive">
+								<ul class="navbar-nav ml-auto">
+									<li class="nav-item mx-0 mx-lg-1">
+										<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/">Rólunk</a>
+									</li>
+									<li class="nav-item mx-0 mx-lg-1">
+										<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="cart">Kosár</a>
+									</li>
+									<li class="nav-item mx-0 mx-lg-1">
+										<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="orders">Rendeléseim</a>
+									</li>
+									<li class="nav-item mx-0 mx-lg-1">
+										<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/products">Termékeink</a>
+									</li>
+									<li class="nav-item mx-0 mx-lg-1">
+										<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout">Kijelentkezés</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Title Page
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(static/images/heading-pages-02.jpg);">
+		<p class="m-text13 t-center">
+			New Arrivals Women Collection 2018
+		</p>
+	</section>
+           -->
+
+	<!-- Content page -->
+	<section class="bgwhite p-t-55 p-b-65" style="margin-top: 100px;">
+		<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+						<div class="leftbar p-r-20 p-r-0-sm">
+
+							<h4 class="m-text14 p-b-7">	Termék listázás </h4>
+							<div class="flex-sb-m flex-w p-b-35">
+								<div class="flex-w">
+									<form th:action="${categoryIdForPaginate}" onsubmit="SetData()" id="listingForm" action="products/">
+										<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 col-12" style="margin-bottom: 15px">
+											<select id="categorySelect" class="selection-2" style="width: 100%;" onchange="handleCategorySelect(this)">
+												<option disabled selected>Kategóriák</option>
+												<option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}"></option>
+											</select>
+										</div>
+										<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 col-12" style="margin-bottom: 15px">
+											<select id="selectedSize" class="selection-2" style="width: 100%;">
+												<option disabled selected>Darabszám</option>
+												<option th:text="${1}" th:value="${productNumberOnPage}"></option>
+												<option th:text="${5}" th:value="${5}"></option>
+												<option th:text="${10}" th:value="${10}"></option>
+												<option th:text="${20}" th:value="${20}"></option>
+											</select>
+										</div>
+										<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 col-12">
+											<select class="selection-2" style="width: 100%;">
+												<option value="" disabled selected>Rendezés</option>
+												<option value="">Név</option>
+												<option value="">Ár</option>
+											</select>
+										</div>
+										<div class="container-login100-form-btn">
+											<button type="submit" class="login100-form-btn" onclick="listingOnClick()">
+												List
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+						<!-- Product -->
+						<div class="row">
+								<div th:each="product : ${productCollection}" class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+									<div class="block2">
+										<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+											<img th:src="${product.pictureUrl}" src="${product.}" alt="IMG-PRODUCT">
+											<div class="block2-overlay trans-0-4">
+												<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+													<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+													<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+												</a>
+											</div>
+										</div>
+										<div class="block2-txt p-t-20">
+											<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5" th:text="${product.name}">
+											</a>
+											<span class="block2-price m-text6 p-r-5" th:text="${product.priceNet}">
+											</span>
+										</div>
+										<div class="block2-btn-addcart w-size1 trans-0-4">
+											<!-- Button -->
+											<form method="post" th:action="@{/addToCart}">
+												<input type="hidden" name="id" th:value="${product.id}"/>
+												<button type="submit" class="login100-form-btn" style="width: 50%;">
+													Kosárba
+												</button>
+											</form>
+										</div>
+									</div>
+								</div>
+						</div>
+						<div class="container">
+							<ul class="pagination justify-content-center">
+								<li class="page-item" th:if="${productsPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
+									<a class="page-link" th:href="@{${categoryIdForPaginate}(size=${productsPage.size}, page=${pageNumber})}"
+										th:text="${pageNumber + 1}" style="color: rgba(24, 188, 156, 0.9);">
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Footer -->
+	<footer class="footer text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 mb-5 mb-lg-0">
+					<h4 class="text-uppercase mb-4">Posta címünk</h4>
+					<p class="lead mb-0">6722 Szeged
+						<br>Londoni Körút 49</p>
+				</div>
+				<div class="col-md-4 mb-5 mb-lg-0">
+					<h4 class="text-uppercase mb-4">Közösségi portálaink</h4>
+					<ul class="list-inline mb-0">
+						<li class="list-inline-item">
+							<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+								<i class="fab fa-fw fa-facebook-f"></i>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+								<i class="fab fa-fw fa-google-plus-g"></i>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+								<i class="fab fa-fw fa-twitter"></i>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+								<i class="fab fa-fw fa-linkedin-in"></i>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+								<i class="fab fa-fw fa-dribbble"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<h4 class="text-uppercase mb-4">Webshop ügyfélszolgálat</h4>
+					<p class="lead mb-0">
+						Tel: +36 (90) 684-1243
+						E-mail: ugyfelszolgalat@vizz.hu
+					</p>
+				</div>
+			</div>
+			<div class="t-center p-l-15 p-r-15">
+
+				<img class="h-size2" th:src="@{images/icons/paypal.png}" alt="IMG-PAYPAL">
+
+				<img class="h-size2" th:src="@{images/icons/visa.png}" alt="IMG-VISA">
+
+				<img class="h-size2" th:src="@{images/icons/mastercard.png}" alt="IMG-MASTERCARD">
+
+				<img class="h-size2" th:src="@{images/icons/express.png}" alt="IMG-EXPRESS">
+				
+				<img class="h-size2" th:src="@{images/icons/discover.png}" alt="IMG-DISCOVER">
+
+				<div class="t-center s-text8 p-t-20">
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+
+	<div class="copyright py-4 text-center text-white">
+		<div class="container">
+			<small>Copyright &copy; Vizz 2018</small>
+		</div>
+	</div>
+
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<!-- Plugin JavaScript -->
+	<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+	<script th:src="@{/vendor/magnific-popup/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.7/jqBootstrapValidation.min.js}"></script>
+	<!-- Custom scripts for this template -->
+	<script th:src="@{/js/freelancer.min.js}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" th:src="@{/vendor/animsition/js/animsition.min.js}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" th:src="@{/vendor/select2/select2.min.js}"></script>
+	<script th:src="@{/js/main_term.js}"></script>
+	<script type="text/javascript">
+        function SetData(){
+            var select = document.getElementById('categorySelect');
+            var listingForm = document.getElementById('listingForm');
+            var category_id = select.options[select.selectedIndex].value;
+            listingForm.action = "products/"+category_id;
+            listingForm.submit();
+        }
+	</script>
+</body>
+</html>
